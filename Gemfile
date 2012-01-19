@@ -7,6 +7,8 @@ gem 'rails', '3.2.0.rc2'
 
 gem 'sqlite3'
 gem 'devise'
+# gem 'cantango'
+# gem 'simple_roles', :git => "git://github.com/stanislaw/simple_roles.git"
 
 # Gems used only for assets and not required
 # in production environments by default.

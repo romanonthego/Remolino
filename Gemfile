@@ -19,6 +19,30 @@ end
 
 gem 'jquery-rails'
 
+# For this app specificly
+gem "paperclip", "~> 2.0"
+gem 'acts_as_tree'
+
+# js enviroment
+gem 'therubyracer'
+
+# markup etc
+gem 'twitter-bootstrap-rails'
+gem 'less', "~> 2.0.8"
+gem 'slim'
+
+group :test, :development do
+  # Pretty printed test output
+  gem 'turn', '~> 0.8.3', :require => false
+  gem 'rspec-rails'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'factory_girl_rails'
+  gem 'launchy'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'spork', '> 0.9.0.rc'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

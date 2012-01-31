@@ -1,5 +1,12 @@
 Remolino::Application.routes.draw do
+  devise_for :users
+
+  match 'memos' => 'memos#index'
+  match 'memos/:id' => 'memos#show'
+
   root :to => "dashboard#index"
+
+  resources :users, :only => [:index, :show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

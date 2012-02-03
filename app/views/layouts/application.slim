@@ -1,0 +1,42 @@
+doctype 5
+html
+	head
+		=stylesheet_link_tag ("application")
+		=javascript_include_tag ("application")
+		=csrf_meta_tags
+		title Remolino
+	body
+		
+		// Consistent topbar.
+		div class="topbar"
+			div class="fill"
+				div class="container"
+					=link_to "Remolino", root_url, :class => "brand"
+					nav class="nav"
+						/ li #{link_to "Home", root_url}
+						/ li #{link_to "Secret", secret_path}
+						li data-dropdown="dropdown"
+							a class="dropdown-toggle" href="#" Users
+							ul class="dropdown-menu"
+								li
+									#{link_to "List", users_path}
+								li 
+									#{link_to "New user", new_user_registration_path}
+								li class="divider"
+								li
+									a href="#" Box.net
+
+
+		div class="container"
+
+			div class="content"
+
+				=render :partial => "shared/alerts.slim"
+				div class="row"
+					div class="span10"
+						=yield
+					div class="span4"
+
+			footer
+				p © Roman-on-the-Go 2011
+

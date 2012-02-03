@@ -1,0 +1,52 @@
+h2 Sign up
+
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-stacked"}) do |f|
+  = devise_error_messages!
+  fieldset     
+    div class="clearfix"
+      - Role.all.each do |r|
+        =label_tag r.name
+        =check_box_tag "roles[#{r.name}]", r.name
+        
+
+
+    div class="clearfix"
+      = f.label :first_name
+      div class="input input-prepend"
+        span class="add-on" n
+        = f.text_field :first_name
+
+    div class="clearfix"
+      = f.label :patronomic
+      div class="input input-prepend"
+        span class="add-on" n
+        = f.text_field :patronomic
+
+    div class="clearfix"
+      = f.label :last_name
+      div class="input input-prepend"
+        span class="add-on" n
+        = f.text_field :last_name
+          
+    div class="clearfix"
+      = f.label :email
+      div class="input input-prepend"
+        span class="add-on" @
+        = f.text_field :email
+
+    div class="clearfix"
+      = f.label :password
+      div class="input input-prepend"
+        span class="add-on" *
+        = f.password_field :password
+
+    div class="clearfix"
+      = f.label :password_confirmation
+      div class="input input-prepend"
+        span class="add-on" *
+        = f.password_field :password_confirmation
+
+    div class="actions"
+      = f.submit 'Sing up', :class => 'btn primary'
+
+= render :partial => "devise/shared/links"

@@ -1,0 +1,10 @@
+- unless @users.blank?
+	table class="bordered-table zebra-striped main"
+	  thead
+	    tr
+	      th Email
+	      th Signed up
+	  - @users.each do |user|
+	    tr
+	      td = link_to user.email, user_path(user)
+	      td = user.updated_at.strftime('%H:%M:%S %d/%m/%Y')

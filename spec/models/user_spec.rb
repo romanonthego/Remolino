@@ -89,13 +89,40 @@ describe User do
 			@admin.subs.should include @user1, @user2
 			@admin.activate_sub(@user1)
 			@admin.active_sub.should == @user1
+			@user1.active_appointives.should include @admin
 
-			# pending "TODO: add activate_substituentship method for user"
 		end
 	end
 
 
 	context "CanCan extended to cover active_appointives" do
+		it "user can? halper extends with active_appointive abilities" do
+			@user1 = Factory(:user)
+			@user2 = Factory(:user)
+
+			@user1.add_role :user
+			@user2.add_role :user
+			@admin.add_role :admin
+
+			@admin.subs.should == []
+			@admin.subs << @user1
+			@admin.subs << @user2
+			@admin.subs.should include @user1, @user2
+			@admin.activate_sub(@user1)
+			@admin.active_sub.should == @user1
+			@user1.active_appointives.should include @admin
+
+			extended_user = @user1.user_and_active_appointives
+			extended_user.should include @admin, @user1
+
+			extended_user.class.should == User::UsersArray
+
+			extended_user.methods.should include :have_admin?
+			extended_user.have_admin?.should == true
+
+			ab = Ability.new(@user1)
+			ab.can?(:manage, Memo).should be_true
+		end
 	end
 
 end

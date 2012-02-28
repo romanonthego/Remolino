@@ -5,38 +5,33 @@ html
 		=javascript_include_tag ("application")
 		=csrf_meta_tags
 		title Remolino
+		link rel="icon" href="#{ asset_path ('favicon.ico') }"
 	body
-		
-		// Consistent topbar.
-		div class="topbar"
-			div class="fill"
-				div class="container"
-					=link_to "Remolino", root_url, :class => "brand"
-					nav class="nav"
-						/ li #{link_to "Home", root_url}
-						/ li #{link_to "Secret", secret_path}
-						li data-dropdown="dropdown"
-							a class="dropdown-toggle" href="#" Users
-							ul class="dropdown-menu"
-								li
-									#{link_to "List", users_path}
-								li 
-									#{link_to "New user", new_user_registration_path}
-								li class="divider"
-								li
-									a href="#" Box.net
-
-
 		div class="container"
-
-			div class="content"
+			=render :partial => "shared/header.slim"
+			
+			div[class="content" data-pjax-container]
 
 				=render :partial => "shared/alerts.slim"
+				=yield :errors
+
 				div class="row"
-					div class="span10"
+					div class=" span9 depth content-head" style="margin-bottom:20px;"
+						ul class="breadcrumb no-bottom-margin box span"
+							= breadcrumb :separator => "/"
+						/ ul class="breadcrumb no-bottom-margin box span"
+						/ 	li
+						/ 		a href="#" Home
+						/ 		span class="divider" = "/"
+						/ 	li
+						/ 		a href="#" Library
+						/ 		span class="divider" = "/"
+							li class="active" Data
+						div class="pull-right" style="display:inline;"
+							a class="btn btn-info btn-alone" href="#" Выгрузить
+							a class="btn btn-success btn-alone" href="#" Создать
+				div class="row"
+					div class="span9 depth main"
 						=yield
-					div class="span4"
-
-			footer
-				p © Roman-on-the-Go 2011
-
+					div class="span3 depth side"
+						= yield :sidebar

@@ -1,0 +1,13 @@
+
+table class="table table-striped table-bordered table-condensed box no-bottom-margin"
+	thead
+		tr
+			th Имя
+			th Описание
+			th Создан
+	tbody
+		- @memos.each do |memo|
+			tr
+				td =memo.name
+				td =memo.description
+				td =memo.created_at

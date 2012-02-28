@@ -20,6 +20,19 @@ end
 Factory.define :reverse_deputy, :class => "Deputy" do |deputy|
 	deputy.sub {|sub| sub.association(:sub)}
 	deputy.appointive {|appointive| appointive.association(:appointive)}
+	deputy.is_active false
+end
+
+Factory.define :active_deputy do |deputy|
+	deputy.sub {|sub| sub.association(:sub)}
+	deputy.appointive {|appointive| appointive.association(:appointive)}
+	deputy.is_active true
+end
+
+Factory.define :active_reverse_deputy, :class => "Deputy" do |deputy|
+	deputy.sub {|sub| sub.association(:sub)}
+	deputy.appointive {|appointive| appointive.association(:appointive)}
+	deputy.is_active true
 end
 
 Factory.define :sub, :class => User do |f|

@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  roles:
+    admin: "Admin"
+    user: "User"
+    economist: "Economist"

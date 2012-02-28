@@ -11,6 +11,12 @@ gem 'devise'
 gem 'simple_roles', :git => "git://github.com/stanislaw/simple_roles.git"
 gem 'cancan'
 gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility'
+gem 'client_side_validations'
+gem 'draper'
+gem 'russian'
+gem 'gretel'
+gem 'pjax-rails'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,7 +32,7 @@ gem 'jquery-rails'
 
 # For this app specificly
 gem "paperclip", "~> 2.0"
-gem 'acts_as_tree'
+# gem 'acts_as_tree'
 
 # js enviroment
 gem 'therubyracer'

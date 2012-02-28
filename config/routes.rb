@@ -1,12 +1,11 @@
 Remolino::Application.routes.draw do
-  devise_for :users
+  root :to => 'dashboard#index'
 
-  match 'memos' => 'memos#index'
-  match 'memos/:id' => 'memos#show'
+  devise_for :user
 
-  root :to => "dashboard#index"
+  resources :memos, :only => [:index, :show]
 
-  resources :users, :only => [:index, :show]
+  resources :users, :except => :destroy
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -62,5 +61,5 @@ Remolino::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  # match ':controller(/:action(/:id(.:format)))'
 end

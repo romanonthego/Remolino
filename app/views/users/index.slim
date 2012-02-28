@@ -1,10 +1,39 @@
-- unless @users.blank?
-	table class="bordered-table zebra-striped main"
-	  thead
-	    tr
-	      th Email
-	      th Signed up
-	  - @users.each do |user|
-	    tr
-	      td = link_to user.email, user_path(user)
-	      td = user.updated_at.strftime('%H:%M:%S %d/%m/%Y')
+- breadcrumb :users
+
+- if @users.blank?
+	h2 there is no users.
+- else
+	- @users.each do |user|
+		div class="box user-block get-space clearfix margin-inside"
+			a href="#{user_path(user)}"
+				img src="http://placehold.it/120x120" alt=""
+			div class="info main-info pull-left"
+				p
+					strong Логин: 
+					span = link_to user.decor_login, user_path(user)
+				p
+					strong Email: 
+					span = user.email
+				p
+					strong Фамилия: 
+					span = user.last_name
+				p
+					strong Имя: 
+					span = user.first_name
+				p
+					strong Отчество: 
+					span = user.patronomic
+			div class="info secondary-info pull-left"
+				p
+					strong Роли: 
+					span = user.roles.collect!{ |r| I18n.t "roles."+r.to_s }.join(", ")
+				p
+					strong Заместители: 
+					- if user.subs.any?
+						span class="subs" == user.subs.collect! { |s| link_to s.full_name, user_path(s) }.join()
+					- else
+						span ---
+			div class="actions pull-right"
+				= link_to "Детали", user_path(user), :class => "btn btn-info margin-inside"
+				= link_to "Редактировать", edit_user_path(user), :class => "btn btn-info margin-inside"
+				= link_to "Заблокировать", '#', :class => "btn btn-danger margin-inside"

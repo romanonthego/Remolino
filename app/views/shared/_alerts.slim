@@ -1,4 +1,8 @@
-- flash.each do |name, message|
-	div class="alert-message warning" id="flash#{name}"
-		a href="#" class="close" ×
-		p =message
+/ Style the header of gate and flash box
+- if flash.any?
+	div class="row"
+		- flash.each do |name, message|
+			div class="span depth alert alert-block alert-error fade in" id="flash#{name}"
+				a class="close" data-dismiss="alert" href="#" ×
+				h4 class="alert-heading" Внимание.
+				p = message

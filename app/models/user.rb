@@ -8,10 +8,29 @@ class User < ActiveRecord::Base
          :trackable,
          :timeoutable,
          :validatable
+  simple_roles
+
+  before_save :asign_roles
+
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :patronomic, :last_name, :roles
-
+  attr_accessible :email, 
+                  :password, 
+                  :password_confirmation,
+                  :login, 
+                  :remember_me, 
+                  :first_name, 
+                  :patronomic, 
+                  :last_name,
+                  :position,
+                  :extension_number,
+                  :cell_phone,
+                  :icq,
+                  :skype,
+                  :city,
+                  :roles
+  
+  # accepts_nested_attributes_for :user_roles
 
   # References
 
@@ -40,15 +59,26 @@ class User < ActiveRecord::Base
   has_many :active_appointives, :class_name => "User", :through => :active_reverse_deputies, :foreign_key => "sub_id", :source => :appointive
 
   # Validations
-  validates_presence_of :first_name 
+  validates :email, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :patronomic, :presence => true
+
+  validates :password, :presence => true, :confirmation => true, :length => {:minimum => 7}
+  validates :login, :presence => true, :format => {:with => /[A-Za-z0-9_]/}
 
   # Plugins, gems etc
-  simple_roles
+  # simple_roles
   # tango_user
 
   # Static methods
   
   # Instance methods
+
+  def full_name
+    last_name + " " + first_name + " " + patronomic
+  end
+
   def activate_sub(user)
     # rise an exception if given user is not User class instance
     dep = deputies.where(:sub_id => user.id).first
@@ -60,8 +90,20 @@ class User < ActiveRecord::Base
     UsersArray.new(self).extend_with_active_appointives
   end
 
+  private
+  def asign_roles
+    unless :roles.nil?
+      roles = :roles
+      add_role :user
+    end
+  end
 
 
+
+
+
+
+  # Utility class for user acts as an array of users.
   class UsersArray < Array
 
     attr_reader :base

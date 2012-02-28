@@ -2,14 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     user ||= User.new
-
     user_extended = user.user_and_active_appointives
-
     # if user.admin? || user.active_appointives.select{|a| a.admin?}.any?
     if user_extended.have_admin?
         can :manage, Memo
+        can :manage, User
     end
 
     if user_extended.have_user?

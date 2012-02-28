@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120130064110) do
+ActiveRecord::Schema.define(:version => 20120223151953) do
 
   create_table "deputies", :force => true do |t|
     t.integer  "appointive_id"
     t.integer  "sub_id"
-    t.boolean  "is_active",     :default => false
+    t.boolean  "is_active",     :default => true
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
   end
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20120130064110) do
     t.string   "skype"
     t.string   "city"
     t.text     "comment"
+    t.string   "login"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

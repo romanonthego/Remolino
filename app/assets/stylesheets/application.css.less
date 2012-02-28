@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+*/
+
+/*!
+ * Bootstrap v2.0.0
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+// CSS Reset
+@import "remolino/reset.less";
+
+// Core variables and mixins
+@import "remolino/variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "remolino/mixins.less";
+
+// Grid system and page structure
+@import "remolino/scaffolding.less";
+@import "remolino/grid.less";
+@import "remolino/layouts.less";
+
+// Base CSS
+@import "remolino/type.less";
+@import "remolino/code.less";
+@import "remolino/forms.less";
+@import "remolino/tables.less";
+
+// Components: common
+@import "remolino/sprites.less";
+@import "remolino/dropdowns.less";
+@import "remolino/wells.less";
+@import "remolino/component-animations.less";
+@import "remolino/close.less";
+
+// Components: Buttons & Alerts
+@import "remolino/buttons.less";
+@import "remolino/button-groups.less";
+@import "remolino/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+@import "remolino/navs.less";
+@import "remolino/navbar.less";
+@import "remolino/breadcrumbs.less";
+@import "remolino/pagination.less";
+@import "remolino/pager.less";
+
+// Components: Popovers
+@import "remolino/modals.less";
+@import "remolino/tooltip.less";
+@import "remolino/popovers.less";
+
+// Components: Misc
+@import "remolino/thumbnails.less";
+@import "remolino/labels.less";
+@import "remolino/progress-bars.less";
+@import "remolino/accordion.less";
+@import "remolino/carousel.less";
+@import "remolino/hero-unit.less";
+
+// Utility classes
+@import "remolino/utilities.less"; // Has to be last to override when necessary
+
+
+
+@import "layout.less";
+@import "gate.less";
+@import "header.less";
+@import "main.less";
+@import "sidebar.less";
+@import "footer.less";

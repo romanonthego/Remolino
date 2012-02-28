@@ -1,0 +1,33 @@
+div class="row"
+	div class="span2 offset2 depth box" style="min-width:60px; min-height:60px; border-radius:30px;"
+	div class="span1 depth depth30 box" style="min-width:60px; min-height:5px;"
+	div class="span2 depth box" style="min-width:60px; min-height:60px; border-radius:30px;"
+	div class="span1 depth box" style="min-width:60px; min-height:5px;"
+	div class="span2 depth box" style="min-width:60px; min-height:60px; border-radius:30px;"
+
+
+div class="row"
+	div class="depth span4 offset4 login"
+		// Style the header of gate and flash box
+		- if flash.any?
+			- flash.each do |name, message|
+				div class="alert alert-block alert-error fade in" id="flash#{name}"
+					//a class="close" data-dismiss="alert" href="#" ×
+					h4 class="alert-heading" Упс. что-то пошло не так.
+					p = message
+
+
+		= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+				div class="input input-prepend" id="login-field"
+					span class="addon"
+						img id="us" data-placement="left" rel='tooltip' data-original-title='Ваш логин.' src="#{image_path('user-icon.png')}"
+					= f.email_field :email, :placeholder => "email"
+				div class="input input-prepend" id="password-field"
+					span class="addon"
+						img id="us" data-placement="left" rel='tooltip' data-original-title='Ваш логин.' src="#{image_path('password-icon.png')}"
+					= f.password_field :password, :placeholder => "password", :class => "xlarge"
+div class="row"
+	div class="span4 offset4 sign_in input"
+		button id="sign_in" class="depth pull-right btn btn-success btn-large" type="submit" form="new_user" value="Войти"
+			// i class="icon-user icon-white"
+			span Войти

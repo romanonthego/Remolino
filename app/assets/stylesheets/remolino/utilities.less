@@ -1,0 +1,72 @@
+// UTILITY CLASSES
+// ---------------
+
+// Quick floats
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+
+.clearfix {
+  /*.clearfix();*/
+}
+
+// Toggling content
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+// Visibility
+.invisible {
+  visibility: hidden;
+}
+
+.depth {
+      position:relative;
+      
+    &:before{
+      background-image: asset-url('bg-depth.png');
+      content:"";
+      display:block;
+      position:absolute;
+      width:100%;
+      height:100%;
+      padding:@depth-size;
+      left:-@depth-size;
+      top:-@depth-size;
+      z-index:-1;
+      border-radius: @depth-size;
+      box-shadow: inset 1px 1px 1px @depth_shadow, 1px 1px 0px @depth_highligth;
+    }
+}
+
+.no-bottom-margin {
+      margin-bottom: 0px;
+}
+
+.box {
+  background-color: @bkg_box;
+  box-shadow: inset 0px 0px 3px @depth_highligth,  1px 1px 1px @depth_shadow;
+  .border-radius(@depth-size);
+}
+
+.btn-alone {
+  box-shadow:1px 1px 1px rgba(64, 74, 74, 0.5);
+}
+
+.margin-inside {
+  margin-bottom:5px;
+
+  &:last-child{
+    margin-bottom:0px;
+  }
+}
+
+.get-space {
+  padding: 5px 5px;
+}

@@ -1,0 +1,114 @@
+body {
+  font-size: @baseFontSize;
+  background-image: image-url("bg.png");
+  font-size:13px;
+}
+
+table {
+	font-size: 13px;
+}
+
+.content {
+	.content-head {
+		.btn {
+			margin-left:5px;
+		}
+	}
+}
+
+form.primary {
+	fieldset.two-column {
+		width:330px;
+
+		legend {
+			margin-top:7px;
+			margin-bottom:5px;
+		}
+
+		input[type="text"], input[type="password"], input[type="select"] {
+			width:263px;
+		}
+	}
+	
+	.actions {
+		width:690px;
+		border-top:1px dashed @grayLight;
+		margin-top:7px;
+		padding-top:5px;
+
+		button {
+			margin-right:5px;
+		}
+	}
+}
+
+.errors {
+	input {
+		
+		backgrround-color:@errorBackground;
+		border-right:1px solid @errorText;
+		border-top:1px solid @errorText;
+		border-bottom:1px solid @errorText;
+	}
+
+	.error-tooltip {
+		float:right;
+		display:inline-block;
+		padding: 0px;
+		background-color: @errorText;
+		border: 1px solid @errorText;
+		.border-radius(3px 3px 3px 3px);
+		margin-left:3px;
+		//width:26px;
+		//height:26px;
+
+		i {
+			margin:5px;
+		}
+	}
+
+	label {
+		display:none;
+	}
+}
+
+
+// Single user displayed in users#index
+.user-block {
+.clearfix();
+
+	div.info {
+		min-height:120px;
+		min-width:220px;
+		max-width:220px;
+
+		p {
+			margin-bottom:3px;
+		}
+
+		p span.subs a {
+			display:block;
+		}
+	}
+
+	img {
+		float:left;
+	}
+
+	div.actions {
+		a {
+			display:block;
+			
+		}
+	}
+
+	div.main-info {
+		margin-left:5px;
+	}
+
+	div.secondary-info {
+		margin-left:5px;
+		padding-left:5px;
+		border-left: 1px dashed @grayLight;
+	}
+}

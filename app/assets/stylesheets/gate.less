@@ -1,0 +1,59 @@
+.login {
+  margin-top: 200px; //200
+  position:relative;
+
+  .input:last-child{
+    margin-bottom:0px;
+  }
+
+  .alert-block{
+    margin-bottom:5px;
+  }
+
+  form {
+  	margin-bottom: 0px;
+
+    .input {
+      
+      &#user_email{
+          margin-bottom:5px;
+        }
+
+      span.addon {
+        background-color: @bkg_box;
+        box-shadow: inset 0px 0px 3px @depth_highligth,  1px 1px 1px @depth_shadow;
+        border-right: 1px solid @bkg_darken;
+        width:28px;
+        height:28px;
+        display:block;
+        float:left;
+        padding: 4px;
+        margin-right: 0px;
+        .border-radius(5px 0 0 5px);
+      }
+
+      input {
+        color: #3a4c62;
+        font-size:16px;
+        text-shadow: 1px 1px 0px #9cabb5;
+        background-color: @bkg_box;
+        box-shadow: inset 0px 0px 3px @depth_highligth, 1px 1px 1px @depth_shadow;
+        width:253px;
+        height:26px;
+        padding:5px;
+        .border-radius(0 5px 5px 0);
+        border: none;
+
+        &:focus {
+        	background-color: @white;
+        }
+      }
+
+    }
+  }
+}
+
+.sign_in {
+  position:relative;
+  margin-top: 15px;
+}

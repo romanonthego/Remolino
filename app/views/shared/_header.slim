@@ -1,0 +1,95 @@
+//top-bar. nav and session managment
+header class="navbar depth"
+	div class="navbar-inner"
+		div class="container" style="width:100%;"
+			div class="nav-collapse"
+				ul class="nav"
+					// Dashboard
+					li clas=""
+						a href="#{root_url}"
+							i class="icon-fire icon-white"
+							span В работе
+					li class="divider-vertical"
+
+					// Docs
+					li class="dropdown"
+						a class="dropdown-toggle" data-toggle="dropdown" href="#"
+							i class="icon-folder-open icon-white"
+							span Документы
+							b class="caret"
+						ul.dropdown-menu
+							li: a href="#" Бюджеты
+							li: a href="#" Поступления
+							li: a href="#" Заявки на оплату
+							li: a href="#{memos_path}" Служебные записки
+							li: a href="#" Документы
+					li class="divider-vertical"
+
+					// Reference
+					li class="dropdown"
+						a class="dropdown-toggle" data-toggle="dropdown" href="#"
+							i class="icon-home icon-white"
+							span Справочники
+							b class="caret"
+						ul.dropdown-menu
+							li: a href="#" ЦФО
+							li: a href="#" Организации
+							li: a href="#" Контрагенты
+							li: a href="#" Счета
+							li: a href="#" Статьи
+							li: a href="#" Категории
+							
+					li class="divider-vertical"
+
+					// Registry
+					/ li class="dropdown"
+					/ 	a class="dropdown-toggle" data-toggle="dropdown" href="#"
+					/ 		i class="icon-list icon-white"
+					/ 		span Реестры
+					/ 		b class="caret"
+					/ 	ul.dropdown-menu
+					/ 	  li: a href="#" Реестр документов
+					/ 	  li: a href="#" Реестр служебных записок
+					/ 	  li: a href="#" Должники
+					/ li class="divider-vertical"
+
+					// Reports
+					li class="dropdown"
+						a class="dropdown-toggle" data-toggle="dropdown" href="#"
+							i class="icon-signal icon-white"
+							span Отчеты
+							b class="caret"
+						ul.dropdown-menu
+						  li: a href="#" БДДС
+						  li: a href="#" БДР
+						  li: a href="#" Платежный календарь
+						  li class="divider"
+						  li: a href="#" Реестр документов
+						  li: a href="#" Реестр служебных записок
+						  li: a href="#" Должники
+					li class="divider-vertical"
+
+					// User managment
+					- if can? :manage, User
+						li class="dropdown"
+							a class="dropdown-toggle" data-toggle="dropdown" href="#"
+								i class="icon-user icon-white"
+								span Пользователи
+								b class="caret"
+							ul.dropdown-menu
+							  li: a href="#{new_user_path}" Создать нового
+							  li: a href="#{users_path}" Просмотреть список
+						li class="divider-vertical"
+
+								
+				// User menu
+				ul class="nav pull-right"
+					li class="divider-vertical"
+					li class="dropdown"
+						a class="dropdown-toggle" data-toggle="dropdown" href="#"
+							i class="icon-user icon-white"
+							span = !current_user.nil? ? current_user.email : "Пионер"
+							b class="caret"
+						ul.dropdown-menu
+						  li: a href="#" Передать полномочия
+						  li: a href="#{destroy_user_session_path}" class="danger" data-method="delete" data-confirm="Are you sure?" Выйти из системы

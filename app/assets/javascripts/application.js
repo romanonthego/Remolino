@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require pjax
+//= require jquery.pjax
 //= require_directory .
 //= require twitter/bootstrap
 //= require rails.validations
@@ -34,6 +34,8 @@ clientSideValidations.callbacks.element.pass = function(element, callback) {
   element.parent().find('.error-tooltip').remove();
 };
 
+
+// simple translitirate from russian to eng plugin
 var ru2en = { 
   ru_str : "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя", 
   en_str : ['A','B','V','G','D','E','JO','ZH','Z','I','J','K','L','M','N','O','P','R','S','T',
@@ -52,7 +54,19 @@ var ru2en = {
 }
 
 $(document).ready(function(){
+
+  $('a[data-pjax="true"]').pjax('[data-pjax-container]');
+
+
   $('[rel=\'tooltip\']').tooltip();
   generateLoginForNewUser();
+
+  $(document).on('pjax:end', function(event, xhr, options) {
+    $('form[data-validate]').validate();
+    $('[rel=\'tooltip\']').tooltip();
+    console.log('pjax complete callback');
+    console.log($('[rel=\'tooltip\']'));
+    // console.log($('form[data-validate="true"]'));
+  });
 
 });

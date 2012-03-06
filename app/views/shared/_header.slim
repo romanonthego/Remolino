@@ -6,7 +6,7 @@ header class="navbar depth"
 				ul class="nav"
 					// Dashboard
 					li clas=""
-						a href="#{root_url}"
+						a href="#{root_url}" data-pjax='true'
 							i class="icon-fire icon-white"
 							span В работе
 					li class="divider-vertical"
@@ -18,11 +18,11 @@ header class="navbar depth"
 							span Документы
 							b class="caret"
 						ul.dropdown-menu
-							li: a href="#" Бюджеты
-							li: a href="#" Поступления
-							li: a href="#" Заявки на оплату
-							li: a href="#{memos_path}" Служебные записки
-							li: a href="#" Документы
+							li: a href="#" data-pjax='true' Бюджеты
+							li: a href="#" data-pjax='true' Поступления
+							li: a href="#" data-pjax='true' Заявки на оплату
+							li: a href="#{memos_path}" data-pjax='true' Служебные записки
+							li: a href="#" data-pjax='true' Документы
 					li class="divider-vertical"
 
 					// Reference
@@ -32,12 +32,12 @@ header class="navbar depth"
 							span Справочники
 							b class="caret"
 						ul.dropdown-menu
-							li: a href="#" ЦФО
-							li: a href="#" Организации
-							li: a href="#" Контрагенты
-							li: a href="#" Счета
-							li: a href="#" Статьи
-							li: a href="#" Категории
+							li: a href="#" data-pjax='true' ЦФО
+							li: a href="#" data-pjax='true' Организации
+							li: a href="#" data-pjax='true' Контрагенты
+							li: a href="#" data-pjax='true' Счета
+							li: a href="#" data-pjax='true' Статьи
+							li: a href="#" data-pjax='true' Категории
 							
 					li class="divider-vertical"
 
@@ -60,13 +60,13 @@ header class="navbar depth"
 							span Отчеты
 							b class="caret"
 						ul.dropdown-menu
-						  li: a href="#" БДДС
-						  li: a href="#" БДР
+						  li: a href="#" data-pjax='true' БДДС
+						  li: a href="#" data-pjax='true' БДР
 						  li: a href="#" Платежный календарь
 						  li class="divider"
-						  li: a href="#" Реестр документов
-						  li: a href="#" Реестр служебных записок
-						  li: a href="#" Должники
+						  li: a href="#" data-pjax='true' Реестр документов
+						  li: a href="#" data-pjax='true' Реестр служебных записок
+						  li: a href="#" data-pjax='true' Должники
 					li class="divider-vertical"
 
 					// User managment
@@ -77,8 +77,8 @@ header class="navbar depth"
 								span Пользователи
 								b class="caret"
 							ul.dropdown-menu
-							  li: a href="#{new_user_path}" Создать нового
-							  li: a href="#{users_path}" Просмотреть список
+							  li: a href="#{new_user_path}" data-pjax='true' Создать нового
+							  li: a href="#{users_path}" data-pjax='true' Просмотреть список
 						li class="divider-vertical"
 
 								

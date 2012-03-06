@@ -15,7 +15,8 @@ gem 'client_side_validations'
 gem 'draper'
 gem 'russian'
 gem 'gretel'
-gem 'pjax-rails'
+# gem 'pjax-rails'
+gem 'rack-pjax'
 
 
 # Gems used only for assets and not required

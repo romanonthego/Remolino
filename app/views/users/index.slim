@@ -34,6 +34,9 @@
 					- else
 						span ---
 			div class="actions pull-right"
-				= link_to "Детали", user_path(user), :class => "btn btn-info margin-inside"
-				= link_to "Редактировать", edit_user_path(user), :class => "btn btn-info margin-inside"
-				= link_to "Заблокировать", '#', :class => "btn btn-danger margin-inside"
+				= link_to "Детали", user_path(user), :class => "btn btn-small btn-info margin-inside", "data-pjax" =>'true'
+				= link_to "Редактировать", edit_user_path(user), :class => "btn btn-small btn-info margin-inside", "data-pjax" =>'true'
+				= link_to "Заблокировать", '#', :class => "btn btn-small btn-danger margin-inside", "data-pjax" =>'true'
+
+= content_for :sidebar do
+	div class="box no-bottom-margin" style="min-height:150px;"

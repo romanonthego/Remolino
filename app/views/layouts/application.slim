@@ -8,6 +8,7 @@ html
 		link rel="icon" href="#{ asset_path ('favicon.ico') }"
 	body
 		div class="container"
+			/ div class="layout_time" =rand(900)+100
 			=render :partial => "shared/header.slim"
 			
 			div[class="content" data-pjax-container]
@@ -32,6 +33,6 @@ html
 							a class="btn btn-success btn-alone" href="#" Создать
 				div class="row"
 					div class="span9 depth main"
-						=yield
+						= yield
 					div class="span3 depth side"
 						= yield :sidebar
